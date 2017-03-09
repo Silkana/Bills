@@ -1,0 +1,39 @@
+<?php 
+
+
+
+
+
+if(count($this->data['articles']) > 0){
+
+
+
+?>
+
+    <div class="row grid">
+
+    <?php
+
+        $articles = array_reverse($this->data['articles']);
+
+        $len = count($articles);
+
+        foreach ($articles as $key => $article) {
+
+            include $this->path . 'commons/article.phtml';
+
+        }
+
+    ?>
+
+    </div>
+
+    <?php
+
+} else {
+
+    echo "<div class='alert alert-warning text-center'>No Articles Found</div>";
+
+}
+
+?>

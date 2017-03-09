@@ -1,0 +1,32 @@
+<table >
+	<thead class="thead">
+		<th>Produit</th>
+		<th>Qty</th>
+		<th>Prix Unitaire</th>
+		<th>Total</th>
+	</thead>
+
+	<tbody>
+
+
+		<?php 
+		$products = $this->data['products'];
+		foreach ($products as $key => $value){
+
+
+		?>
+                <tr class="bg-success">
+
+                        <td><?= $value['name'] 	     	?></td>
+                        <td><?= $value['count']  	    ?></td>
+                        <td><?= $value['msrp']			?></td>
+                        <td><?= $value['total']			?></td>
+                </tr>
+
+        <?php } ?>
+<form action="/payment" method="post">
+	<button type='submit'>PAY</button>
+</form>
+
+	</tbody>
+</table>

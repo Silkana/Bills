@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+	<html>
+		<?php include VIEWS_PATH . 'commons/head.phtml' ?>
+		
+		
+		<body class="container container-fluid">
+		
+		
+			<?php include VIEWS_PATH . 'commons/nav.phtml' ?>
+		
+		
+			<main>
+<?php 		if($this->flash_bag->hasMessages()){ 
+		 		
+		 		while($message = $this->flash_bag->fetchMessage()){
+?>
+		 			
+		 		<p class='alert alert-danger'> <?= $message ?> </p>
+			
+
+<?php			}
+		 	}
+?>
+		
+				<?php include VIEWS_PATH . $this->data['view']; ?>
+		
+
+			</main>
+			
+		
+			<?php include VIEWS_PATH . 'commons/footer.phtml' ?>
+		
+		
+		</body>
+	</html>

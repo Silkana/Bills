@@ -1,0 +1,95 @@
+<?php 
+
+$path = '';
+if(self::isAdmin()){
+
+  $path = "/admin"; 
+
+}elseif(self::isUser()){
+
+  $path = "/user";
+
+}
+
+?>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<?= $path ?>">Home</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+
+
+
+
+
+<?php if(self::isAdmin()){?>
+
+        <li class='<?php if($this->data["activeLink"] == 'clients'){echo("active");}?>' ><a class=" active" href="<?= $path ?>/clients">Clients</a></li>
+
+<?php 
+} 
+
+if(self::isUser() || self::isAdmin()){
+?>
+
+        <li class='<?php if($this->data["activeLink"] == 'profile'){echo("active");}?>' ><a class="active" href="<?= $path ?>/profile">Profile</a></li>
+
+<?php 
+}
+
+if(self::isUser() || self::isAdmin()){
+?>
+
+        <li class='<?php if($this->data["activeLink"] == 'bills'){echo("active");}?>' ><a href="<?= $path ?>/bills">Bills</a></li>
+
+<?php
+}
+?>
+
+        <li class='<?php if($this->data["activeLink"] == 'articles'){echo("active");}?>' ><a href="<?= $path ?>/articles">Articles</a></li>
+
+<?php
+
+if(!self::isAdmin() && !self::isUser()){
+
+?>
+        <li class='<?php if($this->data["activeLink"] == "login"){echo("active");}?>' ><a href="login">Login</a></li>
+<?php 
+}
+
+if(!self::isAdmin() && !self::isUser()){
+?>
+
+
+        <li class='<?php if($this->data["activeLink"] == "register"){echo("active");}?>' ><a href="register">Register</a></li>
+
+<?php
+}
+
+if(self::isUser() || self::isAdmin()){
+?>
+
+        <li><a href="<?= $path ?>/logout">Log Out</a></li>
+
+<?php 
+}
+?>
+        <?php include 'cart.phtml' ?>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

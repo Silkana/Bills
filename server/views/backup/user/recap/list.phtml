@@ -1,0 +1,26 @@
+<table >
+	<thead class="thead">
+		<th>Produit</th>
+		<th>Qty</th>
+		<th>Prix Unitaire</th>
+		<th>Total</th>
+	</thead>
+
+	<tbody>
+
+
+		<?php foreach ($products as ){
+
+
+		?>
+                <tr class="bg-success">
+                        <td><?= $this->data['products']['name'] 	     	?></td>
+                        <td><?= $this->data['products']['count']  	    ?></td>
+                        <td><?= $this->data['products']['msrp']			?></td>
+                        <td><?= $this->data['products']['total']			?></td>
+                </tr>
+
+        <?php } ?>
+
+	</tbody>
+</table>

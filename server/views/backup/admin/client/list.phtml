@@ -1,0 +1,39 @@
+
+<table class="table table-striped">
+<h1 class='text-info'>Gens Nuls</h1>
+<thead>
+    <tr class='active'>
+        <th>Gens</th>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Tel</th>
+        <th>Address</th>
+        <th>Mail</th>
+    </tr>
+</thead>
+
+<tbody>
+
+    <?php  
+    $len = count($this->data['clients']);
+    $clients = $this->data['clients'];
+    for($i=0; $i < $len; $i++){  ?>
+        
+        <?php $client = $clients[$i]; ?>
+
+        <tr class="bg-success">
+                
+              
+                
+                <td><?= $client['id']   			?></td>
+                <td><?= $client['lastname'] 		?></td>
+                <td><?= $client['firstname']  	    ?></td>
+                <td><?= $client['phone']			?></td>
+                <td><?= $client['address'] 		    ?></td>
+                <td><?= $client['mail'] 		    ?></td> 
+        </tr>
+    
+    <?php } ?>
+</tbody>
+
+</table>

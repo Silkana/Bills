@@ -1,0 +1,34 @@
+<li>
+	<a>
+		<i class="cart_link glyphicon glyphicon-shopping-cart" 
+		onclick="cart.toggle();"></i>
+	</a>
+	<div class="cart">
+		<form action="/recap" method="POST">
+			<table >
+				<thead class="thead">
+					<th>Produit</th>
+					<th></th>
+					<th>Qty</th>
+					<th></th>
+					<th></th>
+					<th>Prix Unitaire</th>
+					<th>subtotal</th>
+				</thead>
+
+				<tbody class="cart-container"></tbody>
+
+				<tfoot>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>TOTAL</td>
+					<td class="total"></td>
+				</tfoot>
+			</table>
+				<button class="btn-info btn" type="submit">Crache tes Européens.</button>
+		</form>
+	</div>
+</li>

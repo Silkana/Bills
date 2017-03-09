@@ -1,0 +1,51 @@
+<?php
+if (isset($this->data['bills'])){
+    $len = count($this->data['bills']);
+    if ($len > 0){ 
+?>
+
+    <table class="table table-striped">
+        <h1 class='text-info'>Factures Nulles</h1>
+        <thead class="">
+            <tr class='active'>
+                <th>ID</th>
+                <th>Creation Date</th>
+                <th>Payment_Date</th>
+                <th>Client ID</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <?php 
+            $len = count($this->data['bills']);
+            $bills = $this->data['bills'];
+            // $billDetails = $this->data['bills']
+            for($i=0; $i < $len; $i++){ ?>
+                
+                <?php $bill = $bills[$i]; 
+                ?>
+
+                <tr class="bg-success" onclick="document.location = '/user/billdetails?id=<?= $bill['id'] ?>';">
+                      
+                        
+                        <td><?= $bill['id'] ?></td>
+                        <td><?= $bill['creation_date']          ?></td>
+                        <td><?= $bill['payment_date']       ?></td>
+                        <td><?= $bill['client_id']          ?></td>
+                        </a>
+                </tr>
+            
+            <?php } ?>
+        </tbody>
+    </table>
+
+<?php 
+    }else{
+?>      <p class="alert alert-warning">Vous n'avez aucune facture.</p>
+<?php    }
+}
+
+
+
+?>

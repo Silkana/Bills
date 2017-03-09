@@ -1,0 +1,41 @@
+<?php
+if (isset($this->data['articles'])){
+    $len = count($this->data['articles']);
+    if ($len > 0){ ?>
+        <table class="table table-striped">
+        <h1 class='text-info'>Articles Nuls</h1>
+        <thead>
+            <tr class='active'>
+                <th>ID</th>
+                <th>name</th>
+                <th>Quantity</th>
+                <th>msrp</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <?php  
+            $articles = $this->data['articles'];
+            for($i=0; $i < $len; $i++){  ?>
+                
+                <?php $article = $articles[$i]; ?>
+
+                <tr class="bg-success">
+                        
+                      
+                        
+                        <td><?= $article['id']              ?></td>
+                        <td><?= $article['name']            ?></td>
+                        <td><?= $article['quantity']        ?></td>
+                        <td><?= $article['msrp']            ?></td>
+                </tr>
+            
+            <?php } ?>
+        </tbody>
+
+<?php 
+    }else{?> <p class="alert alert-warning">Vous n'avez pas d'articles.</p>
+<?php    }
+} ?>
+        </table>

@@ -1,0 +1,22 @@
+<section>
+<?php 
+	if (self::isAdmin()){ 
+?>
+  		<p>Bonjour cher Admin</p>
+  		<img src="http://www.jsweb.uk/images/loginascustomer_profile.jpg" />
+		
+<?php 
+} 
+?>
+
+<?php 
+	if (self::isUser()){ 
+?>
+  		<p>Bonjour cher User</p>
+  		<img width="700px" src="http://argience.com/blog/wp-content/uploads/2015/07/User-Experience.jpg" />
+		
+<?php 
+} 
+?>
+
+</section>

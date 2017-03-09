@@ -1,0 +1,77 @@
+<?php
+if (isset($this->data['articles'])){
+    $len = count($this->data['articles']);
+    
+    if(self::isAdmin()){
+
+        if ($len > 0){ ?>
+            <table class="table table-striped">
+            <h1 class='text-info'>Articles Nuls</h1>
+            <thead>
+                <tr class='active'>
+                    <th>ID</th>
+                    <th>name</th>
+                    <th>Quantity</th>
+                    <th>msrp</th>
+                    <th>Restock</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <?php  
+                $articles = $this->data['articles'];
+                for($i=0; $i < $len; $i++){  ?>
+                    
+                    <?php $article = $articles[$i]; ?>
+
+                    <tr class="bg-success">
+                            
+                          
+                            
+                        <td><?= $article['id']              ?></td>
+                        <td><?= $article['name']            ?></td>
+                        <td class='quantity_<?= $article["id"] ?>'><?= $article['quantity']        ?></td>
+                        <td><?= $article['msrp']            ?></td>
+                        <td>
+                <input>
+                <i class='input_quantity_<?= $article["id"]?> glyphicon glyphicon-plus' type='submit' onclick="restock(<?=$article['id']?>, <?= $article['quantity']?>);">
+            </input>            
+
+                        </td>
+                    </tr>
+                
+                <?php } ?>
+            </tbody>
+
+<?php 
+        }else{?> <p class="alert alert-warning">Vous n'avez pas d'articles.</p>
+<?php    }
+    } elseif(!self::isAdmin()){?>
+    <div class="row grid">
+
+    <?php
+
+        $articles = array_reverse($this->data['articles']);
+
+        $len = count($articles);
+
+        foreach ($articles as $key => $article) {
+
+            include 'article.phtml';
+
+        }
+
+    ?>
+
+    </div>
+
+    <?php
+
+    } else {
+
+    echo "<div class='alert alert-warning text-center'>No Articles Found</div>";
+
+ } 
+} ?>
+        </table>

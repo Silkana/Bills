@@ -1,0 +1,25 @@
+<div id="<?= $article['id'] ?>" class="thumbnail col-xs-3">
+
+	<div class="thumbnail" ><img class="img img-responsive" src="<?= ASSETS_PATH ?>images/articles/<?= $article['photo'] ?>"/></div>
+
+	<div class="caption">
+
+		<h4><?= $article['name'] ?></h4>
+
+		<p><?= $article['description'] ?></p>
+
+		<span class="pull-right" onclick=" cart.add(<?= $article['id'];  echo ", '" . 
+
+			$article['name'] . "', '" . 
+
+			$article['msrp'] . "', '" . 
+
+			ASSETS_PATH . 'images/articles/' . $article['photo'] . "');"; ?>">
+
+			<i class="glyphicon glyphicon-shopping-cart"></i>
+
+		</span>
+
+	</div>
+
+</div>
